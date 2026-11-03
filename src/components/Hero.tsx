@@ -28,7 +28,7 @@ export function Hero() {
         <div className="relative mx-auto w-full max-w-lg">
           <div className="animate-pulse-ring absolute inset-4 rounded-[2.5rem] border border-electric/30" />
           <div className="surface relative overflow-hidden rounded-[2rem] p-3">
-            <img className="h-[470px] w-full rounded-[1.5rem] object-cover object-center grayscale-[20%]" src=".../img/carro1.jpg" alt="Carro esportivo de alta performance em uma estrada" fetchPriority="high" />
+            <img className="h-[470px] w-full rounded-[1.5rem] object-cover object-center grayscale-[20%]" src="public/img/carro1.jpg" alt="Carro esportivo de alta performance em uma estrada" fetchPriority="high" />
             <div className="absolute inset-3 bg-gradient-to-t from-ink/90 via-transparent to-transparent" />
             <div className="absolute bottom-9 left-9 right-9 flex items-end justify-between"><div><p className="text-xs font-bold tracking-[.2em] text-electric">LABORATÓRIO / SP</p><p className="mt-2 text-2xl font-black">Precisão que acelera.</p></div><Gauge className="size-11 text-fire" /></div>
           </div>
