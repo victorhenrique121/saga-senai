@@ -22,7 +22,7 @@ export function CustomTuner({ studio = false }: Props) {
   const [isSaving, setIsSaving] = useState(false)
   const [inspectedArea, setInspectedArea] = useState<FocusArea | null>(null)
 
-  useEffect(() => { getUserProjects().then(({ projects: saved, source: storage }) => { setProjects(saved); setSource(storage) }) }, [])
+  useEffect(() => { let mounted = true; getUserProjects().then(({ projects: saved, source: storage }) => { if (!mounted) return; setProjects(saved); setSource(storage) }); return () => { mounted = false } }, [])
   useEffect(() => { const closeOverlays = (event: KeyboardEvent) => { if (event.key === 'Escape') { setDrawerOpen(false); setProjectsOpen(false); setInspectedArea(null) } }; window.addEventListener('keydown', closeOverlays); return () => window.removeEventListener('keydown', closeOverlays) }, [])
   const focusArea = (area: FocusArea | null) => project.setActivePart(area ? project.selectedParts.find((part) => part.focusArea === area) ?? tunerParts.find((part) => part.focusArea === area) ?? null : null)
   const save = async () => { if (isSaving) return; setIsSaving(true); try { const result = await saveTunerProject({ name: `Panamera Turbo · ${project.metrics.selectedCount} peças`, parts: project.selectedParts, color: project.color, ...project.metrics }); setProjects((previous) => [result.project, ...previous.filter((saved) => saved.id !== result.project.id)].slice(0, 8)); setSource(result.source); setNotice(result.source === 'supabase' ? 'Projeto salvo no Supabase.' : 'Projeto salvo somente neste dispositivo.') } finally { setIsSaving(false) } }
