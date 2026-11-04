@@ -8,7 +8,7 @@ const metrics = [
 
 export function Hero() {
   return (
-    <section id="inicio" data-reveal className="reveal relative isolate min-h-[calc(100vh-5rem)] overflow-hidden px-[4%] pb-16 pt-20 sm:pt-28">
+    <section id="inicio" data-reveal className="reveal hero-cinematic relative isolate min-h-[calc(100vh-5rem)] overflow-hidden px-[4%] pb-16 pt-20 sm:pt-28">
       <div className="absolute inset-0 -z-20 grid-glow opacity-60" />
       <div className="absolute -left-40 top-10 -z-10 size-[30rem] rounded-full bg-fire/20 blur-[120px] animate-drift" />
       <div className="absolute right-0 top-28 -z-10 size-[26rem] rounded-full bg-electric/15 blur-[120px] animate-drift" />
